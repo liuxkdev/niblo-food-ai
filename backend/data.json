@@ -1,0 +1,194 @@
+[
+    {
+        "name": "El Veracruzano",
+        "rating": 4.1,
+        "price_level": 2,
+        "vicinity": "INFONAVIT Santa Rita",
+        "types": ["restaurant", "mexican"],
+        "opening_hours": {
+            "open_now": true
+        },
+        "geometry": {
+            "location": {
+                "lat": 17.9995,
+                "lng": -93.3864
+            }
+        }
+    },
+    {
+        "name": "A Takear Cárdenas",
+        "rating": 4.2,
+        "price_level": 2,
+        "vicinity": "Plaza Moro",
+        "types": ["restaurant"],
+        "opening_hours": {
+            "open_now": true
+        },
+        "geometry": {
+            "location": {
+                "lat": 17.9982,
+                "lng": -93.3869
+            }
+        }
+    },
+    {
+        "name": "Fogón Tacos & Beer",
+        "rating": 4.1,
+        "price_level": 1,
+        "vicinity": "Centro",
+        "types": ["restaurant", "tacos"],
+        "opening_hours": {
+            "open_now": true
+        },
+        "geometry": {
+            "location": {
+                "lat": 17.9847,
+                "lng": -93.3783
+            }
+        }
+    },
+    {
+        "name": "El Perro Hambriento",
+        "rating": 4.5,
+        "price_level": 1,
+        "vicinity": "Centro",
+        "types": ["restaurant", "fast_food"],
+        "opening_hours": {
+            "open_now": true
+        },
+        "geometry": {
+            "location": {
+                "lat": 17.9918,
+                "lng": -93.3744
+            }
+        }
+    },
+    {
+        "name": "La María",
+        "rating": 4.6,
+        "price_level": 2,
+        "vicinity": "Centro",
+        "types": ["restaurant", "cafe"],
+        "opening_hours": {
+            "open_now": true
+        },
+        "geometry": {
+            "location": {
+                "lat": 17.9929,
+                "lng": -93.3735
+            }
+        }
+    },
+    {
+        "name": "Taquería El Pastorcito",
+        "rating": 3.9,
+        "price_level": 1,
+        "vicinity": "Centro",
+        "types": ["restaurant", "tacos"],
+        "opening_hours": {
+            "open_now": true
+        },
+        "geometry": {
+            "location": {
+                "lat": 17.9929,
+                "lng": -93.3757
+            }
+        }
+    },
+    {
+        "name": "El Buen Sazón",
+        "rating": 4.4,
+        "price_level": 1,
+        "vicinity": "Centro",
+        "types": ["restaurant", "mexican"],
+        "opening_hours": {
+            "open_now": true
+        },
+        "geometry": {
+            "location": {
+                "lat": 17.9843,
+                "lng": -93.3767
+            }
+        }
+    },
+    {
+        "name": "KFC Cárdenas",
+        "rating": 3.9,
+        "price_level": 1,
+        "vicinity": "Carr. Circuito del Golfo",
+        "types": ["restaurant", "fast_food"],
+        "opening_hours": {
+            "open_now": true
+        },
+        "geometry": {
+            "location": {
+                "lat": 17.9987,
+                "lng": -93.3763
+            }
+        }
+    },
+    {
+        "name": "Restaurante Pura Vida",
+        "rating": 4.3,
+        "price_level": 1,
+        "vicinity": "Centro",
+        "types": ["restaurant"],
+        "opening_hours": {
+            "open_now": true
+        },
+        "geometry": {
+            "location": {
+                "lat": 17.9858,
+                "lng": -93.376
+            }
+        }
+    },
+    {
+        "name": "Mr. BullDog",
+        "rating": 4.0,
+        "price_level": 1,
+        "vicinity": "Centro",
+        "types": ["restaurant", "fast_food"],
+        "opening_hours": {
+            "open_now": true
+        },
+        "geometry": {
+            "location": {
+                "lat": 17.9856,
+                "lng": -93.3769
+            }
+        }
+    },
+    {
+        "name": "Restaurant Las Delicias",
+        "rating": 4.5,
+        "price_level": 1,
+        "vicinity": "Pueblo Nuevo",
+        "types": ["restaurant", "mexican"],
+        "opening_hours": {
+            "open_now": false
+        },
+        "geometry": {
+            "location": {
+                "lat": 17.9868,
+                "lng": -93.3843
+            }
+        }
+    },
+    {
+        "name": "El Tizón II",
+        "rating": 4.1,
+        "price_level": 1,
+        "vicinity": "Plaza Hidalgo",
+        "types": ["restaurant", "tacos"],
+        "opening_hours": {
+            "open_now": true
+        },
+        "geometry": {
+            "location": {
+                "lat": 17.9879,
+                "lng": -93.3768
+            }
+        }
+    }
+]
