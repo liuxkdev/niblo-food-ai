@@ -12,15 +12,12 @@ app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 
-// ✅ Cargar JSON (array directo)
 const data = JSON.parse(fs.readFileSync("./data.json", "utf-8"));
 
-// ✅ Config IA
 const ai = new GoogleGenAI({
     apiKey: process.env.GEMINI_API_KEY,
 });
 
-// 🔹 1. Interpretar texto
 async function interpretarTexto(query) {
     const prompt = `
 Eres un sistema que convierte texto en filtros.
@@ -57,7 +54,6 @@ Texto: "${query}"
     }
 }
 
-// 🔹 2. Mapear precio
 function mapPrecio(precio) {
     if (precio === "barato") return 1;
     if (precio === "medio") return 2;
@@ -65,7 +61,6 @@ function mapPrecio(precio) {
     return null;
 }
 
-// 🔹 3. Mapear tipo IA → datos reales
 function mapTipo(tipo) {
     const mapa = {
         mexican: ["mexican", "tacos"],
@@ -78,11 +73,9 @@ function mapTipo(tipo) {
     return mapa[tipo] || [tipo];
 }
 
-// 🔹 4. Buscar restaurantes
 function buscarRestaurantesMock(filtros) {
     let resultados = data || [];
 
-    // 🍽 tipo comida
     if (filtros.tipo_comida) {
         const tiposValidos = mapTipo(filtros.tipo_comida);
 
@@ -91,21 +84,18 @@ function buscarRestaurantesMock(filtros) {
         );
     }
 
-    // 🟢 abiertos ahora
     if (filtros.abierto_ahora) {
         resultados = resultados.filter(
             (r) => r.opening_hours?.open_now === true,
         );
     }
 
-    // 💰 precio
     if (filtros.precio) {
         const nivel = mapPrecio(filtros.precio);
 
         resultados = resultados.filter((r) => r.price_level === nivel);
     }
 
-    // ⭐ mejora: ordenar por rating
     resultados.sort((a, b) => (b.rating || 0) - (a.rating || 0));
 
     return resultados.slice(0, 5);
