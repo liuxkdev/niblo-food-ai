@@ -4,7 +4,7 @@
         "rating": 4.1,
         "price_level": 2,
         "vicinity": "INFONAVIT Santa Rita",
-        "types": ["restaurant", "mexican"],
+        "types": ["comida mexicana"],
         "opening_hours": {
             "open_now": true
         },
@@ -20,7 +20,7 @@
         "rating": 4.2,
         "price_level": 2,
         "vicinity": "Plaza Moro",
-        "types": ["restaurant"],
+        "types": ["restaurante", "tacos"],
         "opening_hours": {
             "open_now": true
         },
@@ -36,7 +36,7 @@
         "rating": 4.1,
         "price_level": 1,
         "vicinity": "Centro",
-        "types": ["restaurant", "tacos"],
+        "types": ["restaurant", "tacos", "alcohol", "cerveza"],
         "opening_hours": {
             "open_now": true
         },
@@ -52,7 +52,7 @@
         "rating": 4.5,
         "price_level": 1,
         "vicinity": "Centro",
-        "types": ["restaurant", "fast_food"],
+        "types": ["restaurante", "comida rápida"],
         "opening_hours": {
             "open_now": true
         },
@@ -68,7 +68,7 @@
         "rating": 4.6,
         "price_level": 2,
         "vicinity": "Centro",
-        "types": ["restaurant", "cafe"],
+        "types": ["restaurante", "café"],
         "opening_hours": {
             "open_now": true
         },
@@ -84,7 +84,7 @@
         "rating": 3.9,
         "price_level": 1,
         "vicinity": "Centro",
-        "types": ["restaurant", "tacos"],
+        "types": ["restaurante", "tacos"],
         "opening_hours": {
             "open_now": true
         },
@@ -100,7 +100,7 @@
         "rating": 4.4,
         "price_level": 1,
         "vicinity": "Centro",
-        "types": ["restaurant", "mexican"],
+        "types": ["restaurante", "comida mexicana"],
         "opening_hours": {
             "open_now": true
         },
@@ -116,7 +116,7 @@
         "rating": 3.9,
         "price_level": 1,
         "vicinity": "Carr. Circuito del Golfo",
-        "types": ["restaurant", "fast_food"],
+        "types": ["restaurante", "comida rápida", "pollo"],
         "opening_hours": {
             "open_now": true
         },
@@ -132,7 +132,7 @@
         "rating": 4.3,
         "price_level": 1,
         "vicinity": "Centro",
-        "types": ["restaurant"],
+        "types": ["restaurante"],
         "opening_hours": {
             "open_now": true
         },
@@ -148,7 +148,7 @@
         "rating": 4.0,
         "price_level": 1,
         "vicinity": "Centro",
-        "types": ["restaurant", "fast_food"],
+        "types": ["restaurante", "comida rápida"],
         "opening_hours": {
             "open_now": true
         },
@@ -164,7 +164,7 @@
         "rating": 4.5,
         "price_level": 1,
         "vicinity": "Pueblo Nuevo",
-        "types": ["restaurant", "mexican"],
+        "types": ["restaurante", "comida mexicana"],
         "opening_hours": {
             "open_now": false
         },
@@ -180,7 +180,7 @@
         "rating": 4.1,
         "price_level": 1,
         "vicinity": "Plaza Hidalgo",
-        "types": ["restaurant", "tacos"],
+        "types": ["restaurante", "tacos"],
         "opening_hours": {
             "open_now": true
         },

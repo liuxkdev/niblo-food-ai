@@ -23,7 +23,7 @@ async function interpretarTexto(query) {
 Eres un sistema que convierte texto en filtros.
 
 Devuelve SOLO un JSON válido con estas claves:
-- tipo_comida (mexican, sushi, pizza, seafood, cafe)
+- tipo_comida (comida mexicana, comida rápida, sushi, pizza, mariscos, café, pollo, tacos o null)
 - precio (barato, medio, caro o null)
 - abierto_ahora (true o false)
 
