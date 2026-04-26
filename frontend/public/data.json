@@ -1,6 +1,7 @@
 [
     {
         "nombre": "La reina del aguachile",
+        "img": "lareinadelaguachile.png",
         "puntuacion": 4.4,
         "votos": 14,
         "precio": {
@@ -27,6 +28,7 @@
 
     {
         "nombre": "Café Selecto",
+        "img": "cafeselecto.png",
         "puntuacion": 4.1,
         "votos": 1279,
         "precio": {
@@ -58,6 +60,7 @@
 
     {
         "nombre": "Fogón Tacos & Beer",
+        "img": "fogontacosandbeer.png",
         "puntuacion": 4.1,
         "votos": 404,
         "precio": {
@@ -99,6 +102,7 @@
     },
     {
         "nombre": "Go Restaurantes (Cárdenas)",
+        "img": "gorestaurantes.png",
         "puntuacion": 4.3,
         "votos": 1373,
         "precio": {
@@ -131,6 +135,7 @@
     },
     {
         "nombre": "Café Solé",
+        "img": "cafesole.png",
         "puntuacion": 4.2,
         "votos": 444,
         "precio": {
@@ -170,6 +175,7 @@
     },
     {
         "nombre": "Domino's Pizza",
+        "img": "dominospizza.png",
         "puntuacion": 4.2,
         "votos": 1602,
         "precio": {
@@ -200,6 +206,7 @@
     },
     {
         "nombre": "Little Caesars Pizza Cárdenas",
+        "img": "littlecaesarspizzacardenas.png",
         "puntuacion": 4.1,
         "votos": 1843,
         "precio": {
@@ -209,7 +216,7 @@
         "ubicacion": {
             "direccion": "Periférico Carlos Molina y Carretera Federal 589, Cardenas- Huimanguillo, Invitab Paso y Playa, 86556 Cárdenas, Tab."
         },
-        "contacto": null,
+        "contacto": {},
         "tipo_comida": ["pizzeria"],
         "productos": ["pizza"],
         "ambiente": ["informal", "relajado", "agradable", "a_la_moda"],
@@ -227,6 +234,7 @@
     },
     {
         "nombre": "Burger King",
+        "img": "burguerking.png",
         "puntuacion": 4.2,
         "votos": 1453,
         "precio": {
@@ -258,6 +266,7 @@
     },
     {
         "nombre": "KFC",
+        "img": "kfc.png",
         "puntuacion": 3.9,
         "votos": 1923,
         "precio": {
@@ -290,6 +299,7 @@
     },
     {
         "nombre": "Café La Cabaña",
+        "img": "cafelacabana.png",
         "puntuacion": 4.3,
         "votos": 677,
         "precio": {
