@@ -188,7 +188,6 @@ function buscarRestaurantesMock(filtros) {
         .map((lugar) => {
             let match = false;
 
-            // ⭐ puntuación
             if (
                 filtros.puntuacion_minima &&
                 lugar.puntuacion >= filtros.puntuacion_minima
@@ -196,7 +195,6 @@ function buscarRestaurantesMock(filtros) {
                 match = true;
             }
 
-            // 💰 precio
             if (
                 filtros.precio &&
                 lugar.precio &&
@@ -206,44 +204,36 @@ function buscarRestaurantesMock(filtros) {
                 match = true;
             }
 
-            // 🍽 tipo de comida
             if (
                 filtros.tipo_comida?.some((t) => lugar.tipo_comida?.includes(t))
             ) {
                 match = true;
             }
 
-            // 🍤 productos
             if (filtros.productos?.some((p) => lugar.productos?.includes(p))) {
                 match = true;
             }
 
-            // 🎭 ambiente
             if (filtros.ambiente?.some((a) => lugar.ambiente?.includes(a))) {
                 match = true;
             }
 
-            // 🧾 servicios
             if (filtros.servicios?.some((s) => lugar.servicios?.includes(s))) {
                 match = true;
             }
 
-            // 👨‍👩‍👧 público
             if (filtros.publico?.some((p) => lugar.publico?.includes(p))) {
                 match = true;
             }
 
-            // 💳 pagos
             if (filtros.pagos?.some((p) => lugar.pagos?.includes(p))) {
                 match = true;
             }
 
-            // 🍺 bebidas
             if (filtros.bebidas?.some((b) => lugar.bebidas?.includes(b))) {
                 match = true;
             }
 
-            // 🟢 abierto
             if (filtros.abierto && lugar.abierto) {
                 match = true;
             }

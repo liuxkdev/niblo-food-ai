@@ -7,6 +7,8 @@ export default function App() {
     const [messages, setMessages] = useState([]);
     const [prompt, setPrompt] = useState("");
 
+// Código para simular respuestas para diseño de la interfaz
+
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -35,13 +37,11 @@ export default function App() {
             isTyping: true,
         };
 
-        // 👇 1. agregas mensajes
         setMessages((prev) => [...prev, userMsg, aiMsg]);
 
         const currentPrompt = prompt;
         setPrompt("");
 
-        // 👇 2. simulas respuesta
         setTimeout(() => {
             const resultados = data;
 
@@ -49,10 +49,10 @@ export default function App() {
                 prev.map((msg) =>
                     msg.id === aiMsg.id
                         ? {
-                              ...msg,
-                              isTyping: false,
-                              results: resultados,
-                          }
+                            ...msg,
+                            isTyping: false,
+                            results: resultados,
+                        }
                         : msg,
                 ),
             );
