@@ -2,7 +2,7 @@
     {
         "id": 1,
         "nombre": "La reina del aguachile",
-        "img": "lareinadelaguachile.png",
+        "img": "lareinadelaguachile.jpg",
         "puntuacion": 4.4,
         "votos": 14,
         "precio": {
@@ -30,7 +30,7 @@
     {
         "id": 2,
         "nombre": "Café Selecto",
-        "img": "cafeselecto.png",
+        "img": "cafeselecto.jpg",
         "puntuacion": 4.1,
         "votos": 1279,
         "precio": {
@@ -63,7 +63,7 @@
     {
         "id": 3,
         "nombre": "Fogón Tacos & Beer",
-        "img": "fogontacosandbeer.png",
+        "img": "fogontacosandbeer.jpg",
         "puntuacion": 4.1,
         "votos": 404,
         "precio": {
@@ -106,7 +106,7 @@
     {
         "id": 4,
         "nombre": "Go Restaurantes (Cárdenas)",
-        "img": "gorestaurantes.png",
+        "img": "gorestaurantes.jpg",
         "puntuacion": 4.3,
         "votos": 1373,
         "precio": {
@@ -140,7 +140,7 @@
     {
         "id": 5,
         "nombre": "Café Solé",
-        "img": "cafesole.png",
+        "img": "cafesole.jpg",
         "puntuacion": 4.2,
         "votos": 444,
         "precio": {
@@ -181,7 +181,7 @@
     {
         "id": 6,
         "nombre": "Domino's Pizza",
-        "img": "dominospizza.png",
+        "img": "dominospizza.jpg",
         "puntuacion": 4.2,
         "votos": 1602,
         "precio": {
@@ -213,7 +213,7 @@
     {
         "id": 7,
         "nombre": "Little Caesars Pizza Cárdenas",
-        "img": "littlecaesarspizzacardenas.png",
+        "img": "littlecaesarspizzacardenas.jpg",
         "puntuacion": 4.1,
         "votos": 1843,
         "precio": {
@@ -242,7 +242,7 @@
     {
         "id": 8,
         "nombre": "Burger King",
-        "img": "burguerking.png",
+        "img": "burguerking.jpg",
         "puntuacion": 4.2,
         "votos": 1453,
         "precio": {
@@ -275,7 +275,7 @@
     {
         "id": 9,
         "nombre": "KFC",
-        "img": "kfc.png",
+        "img": "kfc.jpg",
         "puntuacion": 3.9,
         "votos": 1923,
         "precio": {
@@ -309,7 +309,7 @@
     {
         "id": 10,
         "nombre": "Café La Cabaña",
-        "img": "cafelacabana.png",
+        "img": "cafelacabana.jpg",
         "puntuacion": 4.3,
         "votos": 677,
         "precio": {

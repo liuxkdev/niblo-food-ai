@@ -5,7 +5,7 @@ import { getRandomDescription } from "./randomDesc";
 import { getRandomAIResponse } from "./randomAIResponse";
 import { AnimatePresence, motion } from "framer-motion";
 import "./style.css";
-import { Trash, Star, Search, Send } from "@boxicons/react";
+import { Trash, Star, Search, Send, ForkKnife, Clock } from "@boxicons/react";
 import { getRandomSuggestion } from "./randomSug";
 
 export default function App() {
@@ -13,7 +13,9 @@ export default function App() {
     const [prompt, setPrompt] = useState(""); // Estado de prompt
     const [randomGreeting, setRandomGreeting] = useState(getRandomGreeting()); // Estado de saludo aleatorio
     const [randomDesc, setRandomDesc] = useState(getRandomDescription()); // Estado de descripción aleatoria
-    const [randomSuggestion, setRandomSuggestion] = useState(getRandomSuggestion())
+    const [randomSuggestion, setRandomSuggestion] = useState(
+        getRandomSuggestion(),
+    );
     const [isChatActive, setIsChatActive] = useState(false); // Estado del chat
     const messageEndRef = useRef(null);
     const inputRef = useRef(null);
@@ -138,18 +140,18 @@ export default function App() {
 
     const isTyping = messages.some((m) => m.isTyping);
     return (
-        <div className="h-dvh bg-gray-100 text-gray-900 font-sans flex flex-col items-center selection:bg-orange-500/30 overflow-hidden relative">
+        <div className="h-dvh bg-gray-100 text-gray-900 font-sans flex flex-col items-center selection:bg-orange-500/30 overflow-hidden relative pb-4">
             <AnimatePresence>
                 {isChatActive && (
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="fixed top-4 right-4 "
+                        className="fixed top-4 right-4 z-50"
                     >
                         <button
                             onClick={clearChat}
-                            className="font-monts bg-white py-2 px-4 rounded-full flex text-sm items-center gap-1 text-gray-500 shadow-md"
+                            className="font-monts bg-white py-2 px-4 rounded-full flex text-sm items-center gap-1 text-gray-500 shadow-md cursor-pointer hover:scale-105 ease transition-all hover:text-gray-800"
                         >
                             <Trash pack="unfilled" size="sm" />
                             Vaciar chat
@@ -161,7 +163,7 @@ export default function App() {
             <motion.div
                 layout
                 className={`w-full max-w-3xl px-4 flex flex-col h-full ${
-                    isChatActive ? "pt-24 pb-6 md:pb-8" : "justify-center"
+                    isChatActive ? "" : "justify-center"
                 }`}
                 initial={false}
                 transition={{ type: "spring", bounce: 0.1, duration: 0.8 }}
@@ -207,7 +209,7 @@ export default function App() {
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{ duration: 0.5 }}
-                                    className="w-full flex flex-col gap-8"
+                                    className="w-full flex flex-col gap-8 pt-20"
                                 >
                                     {messages.map((msg, index) => (
                                         <motion.div
@@ -238,7 +240,7 @@ export default function App() {
                                                                     animate={{
                                                                         scale: [
                                                                             1,
-                                                                            1.2,
+                                                                            1.5,
                                                                             1,
                                                                         ],
                                                                     }}
@@ -252,7 +254,7 @@ export default function App() {
                                                                     animate={{
                                                                         scale: [
                                                                             1,
-                                                                            1.2,
+                                                                            1.5,
                                                                             1,
                                                                         ],
                                                                     }}
@@ -267,7 +269,7 @@ export default function App() {
                                                                     animate={{
                                                                         scale: [
                                                                             1,
-                                                                            1.2,
+                                                                            1.5,
                                                                             1,
                                                                         ],
                                                                     }}
@@ -299,7 +301,7 @@ export default function App() {
                                                                             key={`${msg.id}-${restaurant.id}`}
                                                                             initial={{
                                                                                 opacity: 0,
-                                                                                scale: 0.95,
+                                                                                scale: 0.7,
                                                                                 y: 20,
                                                                             }}
                                                                             animate={{
@@ -315,7 +317,7 @@ export default function App() {
                                                                                     rIndex *
                                                                                     0.1,
                                                                             }}
-                                                                            className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-orange-500/40 transition-colors cursor-pointer flex flex-col shadow-sm hover:shadow-md"
+                                                                            className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-orange-500 transition-colors cursor-pointer flex flex-col shadow-sm hover:shadow-md"
                                                                         >
                                                                             <div className="relative h-44 overflow-hidden">
                                                                                 <img
@@ -327,7 +329,7 @@ export default function App() {
                                                                                     }
                                                                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                                                                 />
-                                                                                <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1 border border-black/5 shadow-sm">
+                                                                                <div className="absolute top-3 right-3 bg-white/80 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1 border border-black/5 shadow-sm">
                                                                                     <Star
                                                                                         pack="unfilled"
                                                                                         size="sm"
@@ -337,6 +339,61 @@ export default function App() {
                                                                                             restaurant.puntuacion
                                                                                         }
                                                                                     </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div className="p-5 flex flex-col gap-2">
+                                                                                <div>
+                                                                                    <h4 className="text-xl font-monts font-semibold">
+                                                                                        {
+                                                                                            restaurant.nombre
+                                                                                        }
+                                                                                    </h4>
+                                                                                </div>
+                                                                                <div className="flex gap-2 items-center">
+                                                                                    <ForkKnife
+                                                                                        className="text-gray-400"
+                                                                                        size="sm"
+                                                                                    />
+                                                                                    <span className="text-gray-500 text-sm">
+                                                                                        {
+                                                                                            restaurant
+                                                                                                .tipo_comida[0]
+                                                                                        }
+                                                                                    </span>
+                                                                                    <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
+                                                                                    <div className="text-gray-400">
+                                                                                        <span>
+                                                                                            $
+                                                                                            {
+                                                                                                restaurant
+                                                                                                    .precio
+                                                                                                    .min
+                                                                                            }
+                                                                                        </span>{" "}
+                                                                                        -{" "}
+                                                                                        <span>
+                                                                                            {
+                                                                                                restaurant
+                                                                                                    .precio
+                                                                                                    .max
+                                                                                            }
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className="text-gray-700 font-monts">
+                                                                                    {
+                                                                                        restaurant
+                                                                                            .ubicacion
+                                                                                            .direccion
+                                                                                    }
+                                                                                </div>
+                                                                                <div className="pt-3 border-t border-t-gray-400 font-monts text-gray-600 flex items-center gap-2">
+                                                                                    <Clock
+                                                                                        size="sm"
+                                                                                    />
+                                                                                    {restaurant.abierto
+                                                                                        ? "Abierto ahora"
+                                                                                        : "Cerrado"}
                                                                                 </div>
                                                                             </div>
                                                                         </motion.div>
@@ -357,18 +414,18 @@ export default function App() {
 
                 <motion.div
                     layout
-                    className={`w-full relative z-10 shrink-0 ${isChatActive ? "pt-10" : "pt-8"}`}
+                    className={`w-full relative z-10 shrink-0 py-4`}
                     transition={{ type: "spring", bounce: 0.1, duration: 0.8 }}
                 >
                     <form
                         onSubmit={handleSubmit}
                         className={`relative flex items-center bg-white rounded-3xl border transition-colors duration-300 pl-4 ${
                             isChatActive
-                                ? "border-gray-200 shadow-md focus-within:border-orange-500/50 focus-within:shadow-lg"
-                                : "border-gray-200 focus-within:border-orange-500/50 shadow-sm"
+                                ? "border-gray-200 shadow-md focus-within:border-orange-500 focus-within:shadow-lg"
+                                : "border-gray-200 focus-within:border-orange-500 shadow-sm"
                         }`}
                     >
-                    <Search className="text-gray-400"/>
+                        <Search className="text-gray-400" />
                         <input
                             ref={inputRef}
                             type="text"
@@ -387,7 +444,7 @@ export default function App() {
                                     type="submit"
                                     className="absolute right-3 w-9 h-9 rounded-full bg-orange-500 text-white flex items-center justify-center hover:bg-orange-600 transition-colors shadow-sm"
                                 >
-                                    <Send/>
+                                    <Send />
                                 </motion.button>
                             )}
                         </AnimatePresence>
