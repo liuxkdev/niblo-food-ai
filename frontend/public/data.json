@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "nombre": "La reina del aguachile",
         "img": "lareinadelaguachile.png",
         "puntuacion": 4.4,
@@ -27,6 +28,7 @@
     },
 
     {
+        "id": 2,
         "nombre": "Café Selecto",
         "img": "cafeselecto.png",
         "puntuacion": 4.1,
@@ -59,6 +61,7 @@
     },
 
     {
+        "id": 3,
         "nombre": "Fogón Tacos & Beer",
         "img": "fogontacosandbeer.png",
         "puntuacion": 4.1,
@@ -101,6 +104,7 @@
         "abierto": true
     },
     {
+        "id": 4,
         "nombre": "Go Restaurantes (Cárdenas)",
         "img": "gorestaurantes.png",
         "puntuacion": 4.3,
@@ -134,6 +138,7 @@
         "abierto": false
     },
     {
+        "id": 5,
         "nombre": "Café Solé",
         "img": "cafesole.png",
         "puntuacion": 4.2,
@@ -174,6 +179,7 @@
         "abierto": false
     },
     {
+        "id": 6,
         "nombre": "Domino's Pizza",
         "img": "dominospizza.png",
         "puntuacion": 4.2,
@@ -205,6 +211,7 @@
         "abierto": true
     },
     {
+        "id": 7,
         "nombre": "Little Caesars Pizza Cárdenas",
         "img": "littlecaesarspizzacardenas.png",
         "puntuacion": 4.1,
@@ -233,6 +240,7 @@
         "abierto": true
     },
     {
+        "id": 8,
         "nombre": "Burger King",
         "img": "burguerking.png",
         "puntuacion": 4.2,
@@ -265,6 +273,7 @@
         "abierto": true
     },
     {
+        "id": 9,
         "nombre": "KFC",
         "img": "kfc.png",
         "puntuacion": 3.9,
@@ -298,6 +307,7 @@
         "abierto": true
     },
     {
+        "id": 10,
         "nombre": "Café La Cabaña",
         "img": "cafelacabana.png",
         "puntuacion": 4.3,
