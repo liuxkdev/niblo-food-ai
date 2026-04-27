@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import "./style.css";
 import { Trash, Star, Search, Send, ForkKnife, Clock } from "@boxicons/react";
 import { getRandomSuggestion } from "./randomSug";
+import { formatValue } from "./dictionary";
 
 export default function App() {
     const [messages, setMessages] = useState([]); // Estado de mensajes
@@ -24,7 +25,7 @@ export default function App() {
 
     // Código para simular respuestas para diseño de la interfaz
 
-    const [data, setData] = useState([]);
+    /*  const [data, setData] = useState([]);
 
     useEffect(() => {
         fetch("/data.json")
@@ -34,8 +35,9 @@ export default function App() {
             })
             .catch((err) => console.log(err));
     }, []);
-
+*/
     const handleSubmit = async (e) => {
+        /*
         e.preventDefault();
 
         if (!prompt.trim()) return;
@@ -74,9 +76,12 @@ export default function App() {
             );
         }, 1000);
 
-        /*  e.preventDefault();
+        */
+
+        e.preventDefault();
 
         if (!prompt.trim()) return;
+        setIsChatActive(true); // Actualizar estado del chat
 
         const userMsg = {
             id: Date.now(),
@@ -97,30 +102,52 @@ export default function App() {
 
         const response = await buscarRestaurantes(currentPrompt);
 
-        console.log("Respuesta API:", response);
-        console.log(response.ok, response.data);
+        const data = response.data;
+        console.log(response)
+        if (data.filtros.error) {
+            setMessages((prev) =>
+                prev.map((msg) =>
+                    msg.id === aiMsg.id
+                        ? {
+                            ...msg,
+                            isTyping: false,
+                            content: "Ocurrió un error.",
+                            results: [],
+                        }
+                        : msg,
+                ),
+            );
+            return
+        }
+
+        if (!data.resultados || data.resultados.length === 0) {
+            setMessages((prev) =>
+                prev.map((msg) =>
+                    msg.id === aiMsg.id
+                        ? {
+                            ...msg,
+                            isTyping: false,
+                            content: "No se encontraron resultados.",
+                            results: [],
+                        }
+                        : msg,
+                ),
+            );
+            return;
+        }
 
         setMessages((prev) =>
-            prev.map((msg) => {
-                if (msg.id !== aiMsg.id) return msg;
-
-                if (!response.ok) {
-                    return {
-                        ...msg,
-                        isTyping: false,
-                        content: "Error al buscar resultados",
-                    };
-                }
-
-                return {
-                    ...msg,
-                    isTyping: false,
-                    results: response.data.resultados || [],
-                };
-            }),
+            prev.map((msg) =>
+                msg.id === aiMsg.id
+                    ? {
+                          ...msg,
+                          isTyping: false,
+                          content: getRandomAIResponse(),
+                          results: data.resultados,
+                      }
+                    : msg,
+            ),
         );
-        */
-        setIsChatActive(true); // Actualizar estado del chat
     };
 
     const clearChat = () => {
@@ -221,7 +248,7 @@ export default function App() {
                                         >
                                             {msg.role === "user" ? (
                                                 <div className="flex justify-end w-full">
-                                                    <div className="bg-white px-5 py-3 rounded-2xl max-w-[85%] text-gray-800 text-lg border border-gray-100 shadow-sm whitespace-pre-wrap">
+                                                    <div className="font-monts bg-white px-5 py-3 rounded-2xl max-w-[85%] text-gray-800 text-lg border border-gray-100 shadow-sm whitespace-pre-wrap">
                                                         {msg.content}
                                                     </div>
                                                 </div>
@@ -282,7 +309,7 @@ export default function App() {
                                                                 />
                                                             </div>
                                                         ) : (
-                                                            <div className="text-gray-700 text-lg pt-1">
+                                                            <div className="text-gray-700 text-lg pt-1 font-monts">
                                                                 {msg.content}
                                                             </div>
                                                         )}
@@ -301,7 +328,7 @@ export default function App() {
                                                                             key={`${msg.id}-${restaurant.id}`}
                                                                             initial={{
                                                                                 opacity: 0,
-                                                                                scale: 0.7,
+                                                                                scale: 0.9,
                                                                                 y: 20,
                                                                             }}
                                                                             animate={{
@@ -317,7 +344,7 @@ export default function App() {
                                                                                     rIndex *
                                                                                     0.1,
                                                                             }}
-                                                                            className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-orange-500 transition-colors cursor-pointer flex flex-col shadow-sm hover:shadow-md"
+                                                                            className="group bg-white border-2 border-gray-200 rounded-2xl overflow-hidden hover:border-orange-500 transition-colors cursor-pointer flex flex-col shadow-sm hover:shadow-md"
                                                                         >
                                                                             <div className="relative h-44 overflow-hidden">
                                                                                 <img
@@ -331,10 +358,11 @@ export default function App() {
                                                                                 />
                                                                                 <div className="absolute top-3 right-3 bg-white/80 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1 border border-black/5 shadow-sm">
                                                                                     <Star
-                                                                                        pack="unfilled"
+                                                                                        pack="filled"
                                                                                         size="sm"
+                                                                                        className="text-yellow-500"
                                                                                     />
-                                                                                    <span className="text-sm font-medium text-gray-900">
+                                                                                    <span className="text-sm font-semibold text-gray-900 font-monts">
                                                                                         {
                                                                                             restaurant.puntuacion
                                                                                         }
@@ -354,15 +382,16 @@ export default function App() {
                                                                                         className="text-gray-400"
                                                                                         size="sm"
                                                                                     />
-                                                                                    <span className="text-gray-500 text-sm">
-                                                                                        {
+                                                                                    <span className="text-gray-500 text-md font-monts">
+                                                                                        {formatValue(
+                                                                                            "tipo_comida",
                                                                                             restaurant
-                                                                                                .tipo_comida[0]
-                                                                                        }
+                                                                                                .tipo_comida[0],
+                                                                                        )}
                                                                                     </span>
                                                                                     <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
                                                                                     <div className="text-gray-400">
-                                                                                        <span>
+                                                                                        <span className="font-monts">
                                                                                             $
                                                                                             {
                                                                                                 restaurant
@@ -371,7 +400,8 @@ export default function App() {
                                                                                             }
                                                                                         </span>{" "}
                                                                                         -{" "}
-                                                                                        <span>
+                                                                                        $
+                                                                                        <span className="font-monts">
                                                                                             {
                                                                                                 restaurant
                                                                                                     .precio
@@ -380,21 +410,19 @@ export default function App() {
                                                                                         </span>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div className="text-gray-700 font-monts">
+                                                                                <div className="text-gray-700 font-monts text-sm">
                                                                                     {
                                                                                         restaurant
                                                                                             .ubicacion
                                                                                             .direccion
                                                                                     }
                                                                                 </div>
-                                                                                <div className="pt-3 border-t border-t-gray-400 font-monts text-gray-600 flex items-center gap-2">
-                                                                                    <Clock
-                                                                                        size="sm"
-                                                                                    />
-                                                                                    {restaurant.abierto
-                                                                                        ? "Abierto ahora"
-                                                                                        : "Cerrado"}
-                                                                                </div>
+                                                                            </div>
+                                                                            <div className="pt-3 border-t border-t-gray-400 font-monts text-gray-600 flex items-center gap-2 text-xs mt-auto mx-4 mb-4">
+                                                                                <Clock size="sm" />
+                                                                                {restaurant.abierto
+                                                                                    ? "Abierto ahora"
+                                                                                    : "Cerrado"}
                                                                             </div>
                                                                         </motion.div>
                                                                     ),
@@ -419,7 +447,7 @@ export default function App() {
                 >
                     <form
                         onSubmit={handleSubmit}
-                        className={`relative flex items-center bg-white rounded-3xl border transition-colors duration-300 pl-4 ${
+                        className={`relative flex items-center bg-white rounded-3xl border-2 transition-colors duration-300 pl-4 ${
                             isChatActive
                                 ? "border-gray-200 shadow-md focus-within:border-orange-500 focus-within:shadow-lg"
                                 : "border-gray-200 focus-within:border-orange-500 shadow-sm"

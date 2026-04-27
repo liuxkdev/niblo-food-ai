@@ -63,7 +63,7 @@ tipo_comida: [
     "taqueria",
     "pizzeria",
     "hamburgueseria",
-    "comida rápida"
+    "comida_rapida"
 ]
 
 productos: [
@@ -170,6 +170,7 @@ Texto del usuario:
         console.log("Error Gemini:", error.message);
 
         return {
+            error: true,
             puntuacion_minima: null,
             precio: null,
             tipo_comida: [],
@@ -186,13 +187,13 @@ Texto del usuario:
 function buscarRestaurantesMock(filtros) {
     return data
         .map((lugar) => {
-            let match = false;
+            let score = 0;
 
             if (
                 filtros.puntuacion_minima &&
                 lugar.puntuacion >= filtros.puntuacion_minima
             ) {
-                match = true;
+                score += 2;
             }
 
             if (
@@ -201,46 +202,46 @@ function buscarRestaurantesMock(filtros) {
                 filtros.precio >= lugar.precio.min &&
                 filtros.precio <= lugar.precio.max
             ) {
-                match = true;
+                score += 2;
             }
 
             if (
                 filtros.tipo_comida?.some((t) => lugar.tipo_comida?.includes(t))
             ) {
-                match = true;
+                score += 3;
             }
 
             if (filtros.productos?.some((p) => lugar.productos?.includes(p))) {
-                match = true;
+                score += 3;
             }
 
             if (filtros.ambiente?.some((a) => lugar.ambiente?.includes(a))) {
-                match = true;
-            }
-
-            if (filtros.servicios?.some((s) => lugar.servicios?.includes(s))) {
-                match = true;
+                score += 2;
             }
 
             if (filtros.publico?.some((p) => lugar.publico?.includes(p))) {
-                match = true;
+                score += 1;
             }
 
             if (filtros.pagos?.some((p) => lugar.pagos?.includes(p))) {
-                match = true;
+                score += 1;
             }
 
             if (filtros.bebidas?.some((b) => lugar.bebidas?.includes(b))) {
-                match = true;
+                score += 1;
             }
 
             if (filtros.abierto && lugar.abierto) {
-                match = true;
+                score += 1;
             }
 
-            return match ? lugar : null;
+            return {
+                ...lugar,
+                score,
+            };
         })
-        .filter(Boolean)
+        .filter((lugar) => lugar.score > 0)
+        .sort((a, b) => b.score - a.score)
         .slice(0, 5);
 }
 
