@@ -4,9 +4,10 @@ import { getRandomGreeting } from "./randomGreetings";
 import { getRandomDescription } from "./randomDesc";
 import { getRandomAIResponse } from "./randomAIResponse";
 import { AnimatePresence, motion } from "framer-motion";
+import { getRandomSuggestion } from "./randomSug";
+import { getRandomNoResultsMessage } from "./randomError";
 import "./style.css";
 import { Trash, Star, Search, Send, ForkKnife, Clock } from "@boxicons/react";
-import { getRandomSuggestion } from "./randomSug";
 import { formatValue } from "./dictionary";
 
 export default function App() {
@@ -104,7 +105,8 @@ export default function App() {
 
         const data = response.data;
         console.log(response)
-        if (data.filtros.error) {
+        console.log(data)
+        if (!response.ok) {
             setMessages((prev) =>
                 prev.map((msg) =>
                     msg.id === aiMsg.id
@@ -127,7 +129,7 @@ export default function App() {
                         ? {
                             ...msg,
                             isTyping: false,
-                            content: "No se encontraron resultados.",
+                            content: getRandomNoResultsMessage(),
                             results: [],
                         }
                         : msg,
